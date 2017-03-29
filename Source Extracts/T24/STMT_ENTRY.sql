@@ -1,0 +1,15 @@
+SELECT XMLRECORD.value('(/row/@id)[1]', 'varchar(35)') AS STMT_ENTRY_ID,
+       XMLRECORD.value('(/row/c1/text())[1]', 'varchar(35)') AS ACCOUNT_NUMBER,
+       XMLRECORD.value('(/row/c3/text())[1]', 'decimal(24,2)') AS AMOUNT_LCY,
+       XMLRECORD.value('(/row/c4/text())[1]', 'varchar(35)') AS TRANSACTION_CODE,
+       XMLRECORD.value('(/row/c5/text())[1]', 'varchar(35)') AS THEIR_REFERENCE,
+       XMLRECORD.value('(/row/c11/text())[1]', 'date') AS VALUE_DATE,
+       XMLRECORD.value('(/row/c12/text())[1]', 'varchar(35)') AS CURRENCY,
+       XMLRECORD.value('(/row/c13/text())[1]', 'decimal(24,2)') AS AMOUNT_FCY,
+       XMLRECORD.value('(/row/c14/text())[1]', 'decimal(24,4)') AS EXCHANGE_RATE,
+       XMLRECORD.value('(/row/c17/text())[1]', 'varchar(35)') AS OUR_REFERENCE,
+       XMLRECORD.value('(/row/c24/text())[1]', 'varchar(35)') AS SYSTEM_ID,
+       XMLRECORD.value('(/row/c30/text())[1]', 'varchar(65)') AS INPUTTER,
+       XMLRECORD.value('(/row/c36/text())[1]', 'varchar(35)') AS CRX_TYPE,
+       XMLRECORD.value('(/row/c39/text())[1]', 'varchar(65)') AS CONSOL_KEY
+FROM FBNK_STMT_ENTRY;
