@@ -22,7 +22,7 @@ SELECT LEFT(XMLRECORD.value('(/row/@id)[1]', 'varchar(35)'), CHARINDEX(';', XMLR
        XMLRECORD.value('(/row/c67[@m="20"]/text())[1]', 'varchar(35)') AS DEBIT_FULL_NAME,
        XMLRECORD.value('(/row/c67[@m="22"]/text())[1]', 'varchar(35)') AS CREDIT_FULL_NAME,
        XMLRECORD.value('(/row/c67[@m="50"]/text())[1]', 'varchar(35)') AS NARRATIVE_LOCAL,
-       XMLRECORD.value('(/row/c67[@m="64"]/text())[1]', 'varchar(35)') AS LMB_DESCRIPTION,
+       XMLRECORD.value('(/row/c67[@m="81"]/text())[1]', 'varchar(35)') AS LMB_DESCRIPTION,
        XMLRECORD.value('(/row/c176/text())[1]', 'varchar(35)') AS RECORD_STATUS,
        XMLRECORD.value('(/row/c177/text())[1]', 'int') AS CURR_NO
 FROM FBNK_FUNDS_TRANSFER#HIS;
