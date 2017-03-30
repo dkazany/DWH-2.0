@@ -1,4 +1,4 @@
-SELECT XMLRECORD.value('(/row/@id)[1]', 'nvarchar(35)') AS STMT_ENTRY_ID,
+SELECT XMLRECORD.value('(/row/@id)[1]', 'nvarchar(35)') AS CATEG_ENTRY_ID,
        XMLRECORD.value('(/row/c1/text())[1]', 'nvarchar(35)') AS ACCOUNT_NUMBER,
        XMLRECORD.value('(/row/c3/text())[1]', 'decimal(24,2)') AS AMOUNT_LCY,
        XMLRECORD.value('(/row/c4/text())[1]', 'nvarchar(35)') AS TRANSACTION_CODE,
@@ -13,9 +13,9 @@ SELECT XMLRECORD.value('(/row/@id)[1]', 'nvarchar(35)') AS STMT_ENTRY_ID,
        XMLRECORD.value('(/row/c14/text())[1]', 'decimal(24,4)') AS EXCHANGE_RATE,
        XMLRECORD.value('(/row/c17/text())[1]', 'nvarchar(35)') AS OUR_REFERENCE,
        XMLRECORD.value('(/row/c24/text())[1]', 'nvarchar(35)') AS SYSTEM_ID,
-       XMLRECORD.value('(/row/c30/text())[1]', 'nvarchar(65)') AS INPUTTER,
 	  XMLRECORD.value('(/row/c28/text())[1]', 'nvarchar(35)') AS RECORD_STATUS,
 	  XMLRECORD.value('(/row/c29/text())[1]', 'int') AS CURR_NO,
+       XMLRECORD.value('(/row/c30/text())[1]', 'nvarchar(65)') AS INPUTTER,
        XMLRECORD.value('(/row/c36/text())[1]', 'nvarchar(35)') AS CRX_TYPE,
        XMLRECORD.value('(/row/c39/text())[1]', 'nvarchar(65)') AS CONSOL_KEY
-FROM FBNK_STMT_ENTRY;
+FROM FBNK_CATEG_ENTRY;
