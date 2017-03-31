@@ -1,6 +1,7 @@
 SELECT
 XMLRECORD.value('(/row/@id)[1]', 'nvarchar(35)') AS SPEC_ENTRY_KEY,
 XMLRECORD.value('(/row/c1/text())[1]', 'nvarchar(35)') AS DEAL_NUMBER,
+XMLRECORD.value('(/row/c2/text())[1]', 'nvarchar(35)') AS COMPANY_CODE,
 XMLRECORD.value('(/row/c3/text())[1]', 'decimal(24,2)') AS AMOUNT_LCY,
 XMLRECORD.value('(/row/c4/text())[1]', 'nvarchar(35)') AS TRANSACTION_CODE,
 XMLRECORD.value('(/row/c5/text())[1]', 'nvarchar(35)') AS CONSOL_KEY_TYPE,

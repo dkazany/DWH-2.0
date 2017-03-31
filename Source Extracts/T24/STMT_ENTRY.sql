@@ -1,5 +1,6 @@
 SELECT XMLRECORD.value('(/row/@id)[1]', 'nvarchar(35)') AS STMT_ENTRY_ID,
        XMLRECORD.value('(/row/c1/text())[1]', 'nvarchar(35)') AS ACCOUNT_NUMBER,
+	   XMLRECORD.value('(/row/c2/text())[1]', 'nvarchar(35)') AS COMPANY_CODE,
        XMLRECORD.value('(/row/c3/text())[1]', 'decimal(24,2)') AS AMOUNT_LCY,
        XMLRECORD.value('(/row/c4/text())[1]', 'nvarchar(35)') AS TRANSACTION_CODE,
        XMLRECORD.value('(/row/c5/text())[1]', 'nvarchar(35)') AS THEIR_REFERENCE,

@@ -8,6 +8,9 @@ SELECT XMLRECORD.value('(/row/@id)[1]', 'nvarchar(35)') AS ACCOUNT_NUMBER,
 	  XMLRECORD.value('(/row/c8/text())[1]', 'nvarchar(3)') AS CURRENCY,
 	  XMLRECORD.value('(/row/c11/text())[1]', 'nvarchar(35)') AS ACCOUNT_OFFICER,
 	  XMLRECORD.value('(/row/c13/text())[1]', 'nvarchar(2)') AS POSTING_RESTRICT,
+	  XMLRECORD.value('(/row/c20[@m="53"]/text())[1]', 'nvarchar(35)') AS TARIFF_GROUP,
+	  XMLRECORD.value('(/row/c20[@m="54"]/text())[1]', 'nvarchar(35)') AS VERSION_NAME,
+	  XMLRECORD.value('(/row/c20[@m="61"]/text())[1]', 'nvarchar(35)') AS ORIGINAL_BRANCH,
 	  XMLRECORD.value('(/row/c23/text())[1]', 'decimal(24,2)') AS OPEN_ACTUAL_BAL,
 	  XMLRECORD.value('(/row/c24/text())[1]', 'decimal(24,2)') AS OPEN_CLEARED_BAL,
 	  XMLRECORD.value('(/row/c25/text())[1]', 'decimal(24,2)') AS ONLINE_ACTUAL_BAL,
@@ -41,4 +44,4 @@ SELECT XMLRECORD.value('(/row/@id)[1]', 'nvarchar(35)') AS ACCOUNT_NUMBER,
        XMLRECORD.value('(/row/c206/text())[1]', 'nvarchar(65)') AS AUTHORISER,
        XMLRECORD.value('(/row/c207/text())[1]', 'nvarchar(65)') AS CO_CODE,
        XMLRECORD.value('(/row/c208/text())[1]', 'nvarchar(65)') AS DEPT_CODE
-FROM FBNK_ACCOUNT;
+FROM FBNK_ACCOUNT
