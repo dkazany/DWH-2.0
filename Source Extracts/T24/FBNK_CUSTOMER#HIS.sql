@@ -1,5 +1,5 @@
 SELECT 
-XMLRECORD.value('(/row/@id)[1]', 'nvarchar(10)') AS CUSTOMER_CODE, 
+LEFT(XMLRECORD.value('(/row/@id)[1]', 'nvarchar(35)'), CHARINDEX(';', XMLRECORD.value('(/row/@id)[1]', 'nvarchar(35)'))-1) AS CUSTOMER_CODE, 
 XMLRECORD.value('(/row/c2/text())[1]', 'nvarchar(35)')+COALESCE(XMLRECORD.value('(/row/c2/text())[2]', 'nvarchar(35)'), '') AS SHORT_NAME,
 XMLRECORD.value('(/row/c3/text())[1]', 'nvarchar(35)')+COALESCE(XMLRECORD.value('(/row/c3/text())[2]', 'nvarchar(35)'), '') AS NAME_1,
 XMLRECORD.value('(/row/c4/text())[1]', 'nvarchar(35)')+COALESCE(XMLRECORD.value('(/row/c4/text())[2]', 'nvarchar(35)'), '') AS NAME_2,
@@ -62,4 +62,4 @@ XMLRECORD.value('(/row/c184/text())[1]', 'nvarchar(65)') AS AUTHORISER,
 XMLRECORD.value('(/row/c185/text())[1]', 'nvarchar(65)') AS CO_CODE,
 XMLRECORD.value('(/row/c186/text())[1]', 'nvarchar(65)') AS DEPT_CODE
 FROM 
-FBNK_CUSTOMER a
+FBNK_CUSTOMER#HIS a
