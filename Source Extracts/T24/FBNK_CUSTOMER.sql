@@ -1,14 +1,14 @@
 SELECT 
-XMLRECORD.value('(/row/@id)[1]', 'nvarchar(10)') AS CUSTOMER_CODE, 
+RECID AS CUSTOMER_CODE, 
 XMLRECORD.value('(/row/c2/text())[1]', 'nvarchar(35)')+COALESCE(XMLRECORD.value('(/row/c2/text())[2]', 'nvarchar(35)'), '') AS SHORT_NAME,
 XMLRECORD.value('(/row/c3/text())[1]', 'nvarchar(35)')+COALESCE(XMLRECORD.value('(/row/c3/text())[2]', 'nvarchar(35)'), '') AS NAME_1,
 XMLRECORD.value('(/row/c4/text())[1]', 'nvarchar(35)')+COALESCE(XMLRECORD.value('(/row/c4/text())[2]', 'nvarchar(35)'), '') AS NAME_2,
 XMLRECORD.value('(/row/c23/text())[1]', 'int') AS SECTOR,
 XMLRECORD.value('(/row/c24/text())[1]', 'nvarchar(35)') AS ACCOUNT_OFFICER,
 XMLRECORD.value('(/row/c26/text())[1]', 'int') AS INDUSTRY,
-XMLRECORD.value('(/row/c28/text())[1]', 'nvarchar(2)') AS NATIONALITY,
+XMLRECORD.value('(/row/c28/text())[1]', 'nchar(2)') AS NATIONALITY,
 XMLRECORD.value('(/row/c29/text())[1]', 'int') AS CUSTOMER_STATUS,
-XMLRECORD.value('(/row/c30/text())[1]', 'nvarchar(2)') AS RESIDENCE,
+XMLRECORD.value('(/row/c30/text())[1]', 'nchar(2)') AS RESIDENCE,
 XMLRECORD.value('(/row/c32/text())[1]', 'nvarchar(35)') AS INTRODUCER,
 XMLRECORD.value('(/row/c42/text())[1]', 'date') AS BIRTH_INCORP_DATE,
 XMLRECORD.value('(/row/c45/text())[1]', 'int') AS LANGUAGE,
@@ -55,11 +55,11 @@ XMLRECORD.value('(/row/c178[@m="250"]/text())[1]', 'nvarchar(35)') AS PHYSICAL_A
 XMLRECORD.value('(/row/c178[@m="251"]/text())[1]', 'nvarchar(35)') AS PHYSICAL_ADDRESS_CITY,
 XMLRECORD.value('(/row/c178[@m="252"]/text())[1]', 'nvarchar(35)') AS PHYSICAL_ADDRESS_DISTRICT,
 XMLRECORD.value('(/row/c178[@m="309"]/text())[1]', 'nvarchar(35)') AS RESPONSIBLE_OFFICER,
-XMLRECORD.value('(/row/c181/text())[1]', 'int') AS CURR_NO,
+XMLRECORD.value('(/row/c181/text())[1]', 'smallint') AS CURR_NO,
 XMLRECORD.value('(/row/c182/text())[1]', 'nvarchar(65)') AS INPUTTER,
 CAST(SUBSTRING(XMLRECORD.value('(/row/c183/text())[1]', 'nvarchar(35)'), 1, 6) AS DATE) AS LAST_UPD_DATE,
 XMLRECORD.value('(/row/c184/text())[1]', 'nvarchar(65)') AS AUTHORISER,
-XMLRECORD.value('(/row/c185/text())[1]', 'nvarchar(65)') AS CO_CODE,
-XMLRECORD.value('(/row/c186/text())[1]', 'nvarchar(65)') AS DEPT_CODE
+XMLRECORD.value('(/row/c185/text())[1]', 'nvarchar(11)') AS CO_CODE,
+XMLRECORD.value('(/row/c186/text())[1]', 'nvarchar(4)') AS DEPT_CODE
 FROM 
 FBNK_CUSTOMER a
